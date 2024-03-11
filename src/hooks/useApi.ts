@@ -13,23 +13,17 @@ export const useApi = () => ({
         email: 'joao@gmail.com'
       }
     }
-    const response = await api.post("/validate", { token });
-    return response.data;
+    /* const response = await api.post("/validate", { token });
+    return response.data; */
   },
-  signup: async (name: string, email: string, password: string) => {
-    return {
-      user: {
-        name: "Enzo",
-        email: "enzoragazzoni21@gmail.com",
-        password: "123123876"
-      }
-    }
-    const response = await api.post("/register", {
+  signup: async () => {
+    return true;
+/*     const response = await api.post("/register", {
       name,
       email,
       password
     })
-    return response.data;
+    return response.data; */
   },
   signin: async (email: string, password: string) => {
     return {
@@ -40,15 +34,15 @@ export const useApi = () => ({
       },
       token: '123456789'
     }
-    const response = await api.post("/signin", {
+    /* const response = await api.post("/signin", {
       email,
       password
     })
-    return response.data;
+    return response.data; */
   },
   signout: async () => {
     return { status: true }
-    const response = await api.post("logout");
-    return response.data;
+    /* const response = await api.post("logout");
+    return response.data; */
   }
 });

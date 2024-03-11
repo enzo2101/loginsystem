@@ -2,9 +2,11 @@ import { useState } from "react";
 import "../Login/index.css";
 import { useApi } from "../../hooks/useApi";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Register = () => {
+
+  const navigate = useNavigate()
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,10 +17,16 @@ export const Register = () => {
   const handleRegister = async () => {
     if (email && password) {
       try {
-        const data = await api.signup(name, email, password);
-        console.log(data.user);
-        setEmail("");
-        setPassword("");
+        const response = await api.signup(/* name, email, password */);
+        if(response) {
+          navigate("/");
+          setName("");
+          setEmail("");
+          setPassword("");
+        }
+        else {
+          alert("Insira valores válidos!");
+        }
       } catch (error) {
         console.error("Erro ao registrar:", error);
       }

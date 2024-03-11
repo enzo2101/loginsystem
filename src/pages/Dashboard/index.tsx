@@ -3,7 +3,7 @@ import { AuthContext } from "../../contexts/Auth/AuthContext"
 
 export const Dashboard = () => {
 
-  const auth = useContext(AuthContext)
+  const auth = useContext(AuthContext);
 
   const handleLogout = async () => {
     await auth.signout();
